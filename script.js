@@ -5,26 +5,6 @@ canvas.width = window.innerWidth;
 
 let c = canvas.getContext('2d');
 
-
-const drawCircle = ( x, y, dx, dy, radius, hue) => {
-  c.beginPath();
-  c.arc(x, y, radius, 0, Math.PI * 2, false);
-  c.fillStyle = `hsl(${hue}, 50%, 75%)`;
-  c.strokeStyle = `hsl(${hue}, 50%, 55%)`;
-  c.stroke();
-  c.fill();
-}
-
-
-// for (let i = 0; i < 100; i++) {
-//   let radius = 44;
-//   let hue = Math.floor(Math.random() * 360)
-//   let x = Math.random() * (window.innerWidth - (radius * 2)) + radius;
-//   let y = Math.random() * (window.innerHeight - (radius * 2)) + radius;
-//   c.beginPath();
-//   drawCircle(x, y, 0, 0, radius, hue);
-// }
-
 const circleFactory = (x, y, dx, dy, radius, hue) => {
   let self ={
     x,
@@ -70,17 +50,6 @@ for (let i = 0; i < 50; i++) {
   let dy = (Math.random() - 0.5) * 8
   circleArray.push(circleFactory( x, y, dx, dy, radius, hue));
 }
-
-console.log(circleArray)
-
-
-
-let radius = 44;
-let hue = Math.floor(Math.random() * 360)
-let x = Math.random() * (window.innerWidth - (radius * 2)) + radius;
-let y = Math.random() * (window.innerHeight - (radius * 2)) + radius;
-let dx = (Math.random() - 0.5) * 8
-let dy = (Math.random() - 0.5) * 8
 
 
 const animate = () => {
