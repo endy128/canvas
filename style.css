@@ -1,0 +1,38 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+
+canvas {
+  background-color: hsl(113, 70%, 62%);
+  z-index: -9;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  align-self: center;
+}
+
+ul {
+  align-self: center;
+  list-style: none;
+  width: 70%;
+}
+
+li {
+  border: 1px solid black;
+  padding: 1em;
+  margin: 1em;
+  background-color: hsl(200, 100%, 50%);
+}
