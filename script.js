@@ -39,7 +39,7 @@ const circleFactory = (x, y, dx, dy, radius, hue) => {
 
 let circleArray = []
 for (let i = 0; i < 200; i++) {
-  let radius = Math.floor(Math.random() * 10)
+  let radius = Math.floor(Math.random() * 10 + 1)
   let hue = Math.floor(Math.random() * 360)
   let x = Math.random() * (window.innerWidth - radius * 2) + radius
   let y = Math.random() * (window.innerHeight - radius * 2) + radius
