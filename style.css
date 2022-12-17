@@ -35,4 +35,12 @@ li {
   padding: 1em;
   margin: 1em;
   background-color: hsl(0, 0%, 85%);
+  transition: all, ease-in, 0.1s;
+  /* transition: width 2s, height 2s, background-color 2s, transform 2s; */
+
+}
+
+li:hover{
+  cursor: pointer;
+  transform: scale(1.01, 1.01);
 }
