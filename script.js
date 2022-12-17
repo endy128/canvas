@@ -41,13 +41,13 @@ const circleFactory = (x, y, dx, dy, radius, hue) => {
 
 
 let circleArray = [];
-for (let i = 0; i < 50; i++) {
-  let radius = 44;
+for (let i = 0; i < 100; i++) {
+  let radius = Math.floor(Math.random() * 10);
   let hue = Math.floor(Math.random() * 360)
   let x = Math.random() * (window.innerWidth - (radius * 2)) + radius;
   let y = Math.random() * (window.innerHeight - (radius * 2)) + radius;
-  let dx = (Math.random() - 0.5) * 8
-  let dy = (Math.random() - 0.5) * 8
+  let dx = (Math.random() - 0.5);
+  let dy = (Math.random() - 0.5);
   circleArray.push(circleFactory( x, y, dx, dy, radius, hue));
 }
 

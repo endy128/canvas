@@ -7,7 +7,7 @@ html, body {
 
 
 canvas {
-  background-color: hsl(113, 70%, 62%);
+  background-color: hsl(0, 0%, 75%);
   z-index: -9;
   display: block;
   position: fixed;
@@ -31,8 +31,8 @@ ul {
 }
 
 li {
-  border: 1px solid black;
+  border: 1px solid hsl(0, 0%, 85%);
   padding: 1em;
   margin: 1em;
-  background-color: hsl(200, 100%, 50%);
+  background-color: hsl(0, 0%, 85%);
 }
