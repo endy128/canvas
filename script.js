@@ -5,7 +5,7 @@ canvas.width = window.innerWidth
 let c = canvas.getContext('2d')
 let speed = 10
 let distance = 50
-let size = 50
+let size = 15
 let totalBalls = 100
 let deceleration = 0.02
 
@@ -74,6 +74,8 @@ const circleFactory = (x, y, dx, dy, radius, hue) => {
 
         // self.dx = Math.floor(self.x - mouse.x) / speed
         // self.dy = Math.floor(self.y - mouse.y) / speed
+
+        // if the balls are not near the mouse, slow them down
       } else {
         if (self.dx > 0.4) {
           self.dx -= deceleration
@@ -87,6 +89,19 @@ const circleFactory = (x, y, dx, dy, radius, hue) => {
         if (self.dy < -0.4) {
           self.dy += deceleration
         }
+      }
+      // give the ball a random acceleration after they have slowed doww
+      if (self.dx == 0.4) {
+        self.dx = self.dx + Math.random()
+      }
+      if (self.dx == -0.4) {
+        self.dx = self.dx + -Math.random()
+      }
+      if (self.dy == 0.4) {
+        self.dy = self.dy + Math.random()
+      }
+      if (self.dy == -0.4) {
+        self.dy = self.dy + -Math.random()
       }
     },
   }
