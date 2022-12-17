@@ -14,7 +14,7 @@ let mouse = {
   y: null,
 }
 
-window.addEventListener('mousemove', function (e) {
+window.addEventListener('pointermove', function (e) {
   mouse.x = e.x
   mouse.y = e.y
 })
@@ -90,7 +90,7 @@ const circleFactory = (x, y, dx, dy, radius, hue) => {
           self.dy += deceleration
         }
       }
-      // give the ball a random acceleration after they have slowed doww
+      // give the ball a random acceleration after they have slowed down
       if (self.dx == 0.4) {
         self.dx = self.dx + Math.random()
       }
