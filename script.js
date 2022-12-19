@@ -5,7 +5,7 @@ canvas.width = window.innerWidth
 let c = canvas.getContext('2d')
 let speed = 10
 let distance = 20
-let size = 15
+let size = 50
 let totalCircles = 100
 let deceleration = 0.02
 
@@ -32,8 +32,8 @@ const circleFactory = (x, y, dx, dy, radius, hue) => {
     draw: function () {
       c.beginPath()
       c.arc(self.x, self.y, self.radius, 0, Math.PI * 2, false)
-      c.fillStyle = `hsl(${self.hue}, 50%, 75%)`
-      c.strokeStyle = `hsl(${self.hue}, 50%, 55%)`
+      c.fillStyle = `hsl(${self.hue}, 50%, 75%, 0.2)`
+      c.strokeStyle = `hsl(${self.hue}, 50%, 55%, 0.2)`
       c.stroke()
       c.fill()
     },
@@ -52,7 +52,7 @@ const circleFactory = (x, y, dx, dy, radius, hue) => {
       // mouse interactivity
 
       // if the Circles are close to the mouse, change their direction
-      if (getDistance(mouse.x, mouse.y, self.x, self.y) < distance) {
+      if (getDistance(mouse.x, mouse.y, self.x, self.y) < self.radius) {
         let xChange = Math.floor(self.x - mouse.x) / speed
         let yChange = Math.floor(self.y - mouse.y) / speed
         if (xChange > 0) {
