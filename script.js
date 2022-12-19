@@ -4,7 +4,6 @@ canvas.width = window.innerWidth
 
 let c = canvas.getContext('2d')
 let speed = 10
-let distance = 20
 let size = 50
 let totalCircles = 100
 let deceleration = 0.02
