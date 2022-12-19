@@ -6,7 +6,7 @@ let c = canvas.getContext('2d')
 let speed = 10
 let distance = 20
 let size = 15
-let totalBalls = 100
+let totalCircles = 100
 let deceleration = 0.02
 
 let mouse = {
@@ -50,6 +50,8 @@ const circleFactory = (x, y, dx, dy, radius, hue) => {
       self.y += self.dy
 
       // mouse interactivity
+
+      // if the Circles are close to the mouse, change their direction
       if (getDistance(mouse.x, mouse.y, self.x, self.y) < distance) {
         let xChange = Math.floor(self.x - mouse.x) / speed
         let yChange = Math.floor(self.y - mouse.y) / speed
@@ -67,10 +69,7 @@ const circleFactory = (x, y, dx, dy, radius, hue) => {
           self.dy = -0.5 - Math.floor(mouse.y - self.y) / speed
         }
 
-        // self.dx = Math.floor(self.x - mouse.x) / speed
-        // self.dy = Math.floor(self.y - mouse.y) / speed
-
-        // if the balls are not near the mouse, slow them down
+        // if the Circles are not near the mouse, slow them down
       } else {
         if (self.dx > 0.4) {
           self.dx -= deceleration
@@ -85,6 +84,7 @@ const circleFactory = (x, y, dx, dy, radius, hue) => {
           self.dy += deceleration
         }
       }
+
       // give the ball a random acceleration after they have slowed down
       // this stops them all being the same speed
       if (self.dx == 0.4) {
@@ -104,13 +104,13 @@ const circleFactory = (x, y, dx, dy, radius, hue) => {
 }
 
 const getDistance = (x1, y1, x2, y2) => {
-  let y = x2 - x1
-  let x = y2 - y1
+  let x = x2 - x1
+  let y = y2 - y1
   return Math.sqrt(x * x + y * y)
 }
 
 let circleArray = []
-for (let i = 0; i < totalBalls; i++) {
+for (let i = 0; i < totalCircles; i++) {
   let radius = Math.floor(Math.random() * size + 1)
   let hue = Math.floor(Math.random() * 360)
   let x = Math.random() * (window.innerWidth - radius * 2) + radius
@@ -124,9 +124,9 @@ const animate = () => {
   requestAnimationFrame(animate)
   c.clearRect(0, 0, innerWidth, innerHeight)
 
-  circleArray.forEach((el) => {
-    el.draw()
-    el.update()
+  circleArray.forEach((circle) => {
+    circle.draw()
+    circle.update()
   })
 }
 
