@@ -50,13 +50,7 @@ const circleFactory = (x, y, dx, dy, radius, hue) => {
       self.y += self.dy
 
       // mouse interactivity
-      if (
-        // mouse.x - self.x < distance &&
-        // mouse.x - self.x > -distance &&
-        // mouse.y - self.y < distance &&
-        // mouse.y - self.y > -distance
-        getDistance(mouse.x, mouse.y, self.x, self.y) < distance
-      ) {
+      if (getDistance(mouse.x, mouse.y, self.x, self.y) < distance) {
         let xChange = Math.floor(self.x - mouse.x) / speed
         let yChange = Math.floor(self.y - mouse.y) / speed
         if (xChange > 0) {
@@ -92,6 +86,7 @@ const circleFactory = (x, y, dx, dy, radius, hue) => {
         }
       }
       // give the ball a random acceleration after they have slowed down
+      // this stops them all being the same speed
       if (self.dx == 0.4) {
         self.dx = self.dx + Math.random()
       }
