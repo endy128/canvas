@@ -4,7 +4,7 @@ canvas.width = window.innerWidth
 
 let c = canvas.getContext('2d')
 let speed = 10
-let distance = 50
+let distance = 20
 let size = 15
 let totalBalls = 100
 let deceleration = 0.02
@@ -51,24 +51,25 @@ const circleFactory = (x, y, dx, dy, radius, hue) => {
 
       // mouse interactivity
       if (
-        mouse.x - self.x < distance &&
-        mouse.x - self.x > -distance &&
-        mouse.y - self.y < distance &&
-        mouse.y - self.y > -distance
+        // mouse.x - self.x < distance &&
+        // mouse.x - self.x > -distance &&
+        // mouse.y - self.y < distance &&
+        // mouse.y - self.y > -distance
+        getDistance(mouse.x, mouse.y, self.x, self.y) < distance
       ) {
-        let xchange = Math.floor(self.x - mouse.x) / speed
-        let ychange = Math.floor(self.y - mouse.y) / speed
-        if (xchange > 0) {
+        let xChange = Math.floor(self.x - mouse.x) / speed
+        let yChange = Math.floor(self.y - mouse.y) / speed
+        if (xChange > 0) {
           self.dx = 0.5 - Math.floor(mouse.x - self.x) / speed
         }
-        if (xchange < 0) {
+        if (xChange < 0) {
           self.dx = -0.5 - Math.floor(mouse.x - self.x) / speed
         }
 
-        if (ychange > 0) {
+        if (yChange > 0) {
           self.dy = 0.5 - Math.floor(mouse.y - self.y) / speed
         }
-        if (ychange < 0) {
+        if (yChange < 0) {
           self.dy = -0.5 - Math.floor(mouse.y - self.y) / speed
         }
 
@@ -105,6 +106,12 @@ const circleFactory = (x, y, dx, dy, radius, hue) => {
       }
     },
   }
+}
+
+const getDistance = (x1, y1, x2, y2) => {
+  let y = x2 - x1
+  let x = y2 - y1
+  return Math.sqrt(x * x + y * y)
 }
 
 let circleArray = []
