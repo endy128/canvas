@@ -13,9 +13,23 @@ let mouse = {
   y: null,
 }
 
-window.addEventListener('pointermove', function (e) {
+window.addEventListener('pointermove', (e) => {
   mouse.x = e.x
   mouse.y = e.y
+})
+
+window.addEventListener('resize', () => {
+  c.clearRect(0, 0, innerWidth, innerHeight)
+
+  canvas.height = window.innerHeight
+  canvas.width = window.innerWidth
+
+  circleArray = []
+  createCircles()
+
+  circleArray.forEach((circle) => {
+    circle.draw()
+  })
 })
 
 const circleFactory = (x, y, dx, dy, radius, hue) => {
@@ -109,14 +123,16 @@ const getDistance = (x1, y1, x2, y2) => {
 }
 
 let circleArray = []
-for (let i = 0; i < totalCircles; i++) {
-  let radius = Math.floor(Math.random() * size + 1)
-  let hue = Math.floor(Math.random() * 360)
-  let x = Math.random() * (window.innerWidth - radius * 2) + radius
-  let y = Math.random() * (window.innerHeight - radius * 2) + radius
-  let dx = Math.random() - 0.5
-  let dy = Math.random() - 0.5
-  circleArray.push(circleFactory(x, y, dx, dy, radius, hue))
+const createCircles = () => {
+  for (let i = 0; i < totalCircles; i++) {
+    let radius = Math.floor(Math.random() * size + 1)
+    let hue = Math.floor(Math.random() * 360)
+    let x = Math.random() * (window.innerWidth - radius * 2) + radius
+    let y = Math.random() * (window.innerHeight - radius * 2) + radius
+    let dx = Math.random() - 0.5
+    let dy = Math.random() - 0.5
+    circleArray.push(circleFactory(x, y, dx, dy, radius, hue))
+  }
 }
 
 const animate = () => {
@@ -129,4 +145,5 @@ const animate = () => {
   })
 }
 
+createCircles()
 animate()
