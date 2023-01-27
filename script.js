@@ -13,6 +13,17 @@ let mouse = {
   y: null,
 }
 
+window.addEventListener('click', (e) => {
+  console.log(canvas.style.display)
+  if (e.target.id == 'toggle-bubbles') {
+    if (canvas.style.display != 'block') {
+      canvas.style.display = 'block'
+    } else {
+      canvas.style.display = 'none'
+    }
+  }
+})
+
 window.addEventListener('pointermove', (e) => {
   mouse.x = e.x
   mouse.y = e.y

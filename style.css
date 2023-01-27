@@ -1,23 +1,25 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   height: 100%;
 }
 
-
 canvas {
   background-color: hsl(0, 0%, 75%);
-  z-index: -9;
-  display: block;
+  z-index: -1;
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
 }
 
 body {
+  z-index: -9;
   display: flex;
   flex-direction: column;
+  background-color: hsl(0, 0%, 75%);
 }
 
 h1 {
@@ -37,10 +39,19 @@ li {
   background-color: hsl(0, 0%, 85%);
   transition: all, ease-in, 0.1s;
   /* transition: width 2s, height 2s, background-color 2s, transform 2s; */
-
 }
 
-li:hover{
+li:hover {
   cursor: pointer;
   transform: scale(1.01, 1.01);
+}
+
+#toggle-bubbles {
+  align-self: flex-end;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  /* padding: 25px 0px; */
+  background-color: blue;
 }
